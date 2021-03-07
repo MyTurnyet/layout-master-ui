@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import './index.scss'
 import React, {ReactElement} from "react";
+import Layout from "./components/Layout";
 
-const App = (): ReactElement => (
-    <div className="App">
-        <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo"/>
-            <p>
-                Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-                className="App-link"
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Learn React
-            </a>
-        </header>
-    </div>
-);
+export type PageProps = {
+    siteName: string
+}
+
+class App extends React.Component<PageProps> {
+    static defaultProps = {siteName: "Layout Master"}
+
+    render(): ReactElement {
+        return (
+            <div className="App">
+                <Layout siteName={this.props.siteName}>
+                    APP Page
+                </Layout>
+            </div>
+        );
+    }
+}
 
 export default App;
