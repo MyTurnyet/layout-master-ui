@@ -13,8 +13,7 @@ describe(' HomePage ', () => {
         const props: HomePageProps = {
             userName: "Paige"
         }
-        render(<HomePage {...props}/>
-        );
+        render(<HomePage {...props}/>        );
         const linkElement = screen.getByText("Hello Paige");
         expect(linkElement).toBeInTheDocument();
     });

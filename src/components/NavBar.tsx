@@ -8,18 +8,18 @@ export type NavBarProps = {
 
 class NavBar extends Component<NavBarProps> {
     render(): ReactElement {
-        return (
-            <div className="NavBar">
-                {this.props.buttons && this.props.buttons.map(
-                    buttonProp =>
-                        (<NavButton key={buttonProp.path}
-                                    path={buttonProp.path}
-                                    icon={buttonProp.icon}
-                                    label={buttonProp.label}/>)
-                )}
-            </div>
+        const navButtonsArray = this.props.buttons.map(
+            (buttonProp, index) =>
+                (<NavButton key={index}
+                            {...buttonProp}
+                />)
         );
+        return <div className="NavBar">
+            {navButtonsArray}
+        </div>;
+
     }
+
 }
 
 

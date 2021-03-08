@@ -2,8 +2,8 @@ import React, {ReactElement} from "react";
 import {PageProps} from "../App";
 import NavBar, {NavBarProps} from "./NavBar";
 import Header from "./Header";
-import '../index.scss'
 import './Layout.scss'
+import "../index.scss"
 import HomePage from "../HomePage";
 import {Route} from "react-router-dom";
 import {faHome} from "@fortawesome/free-solid-svg-icons";

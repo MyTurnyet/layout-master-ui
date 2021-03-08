@@ -1,5 +1,7 @@
 import React, {ReactElement} from "react";
 import Layout from "./components/Layout";
+
+
 import {BrowserRouter as Router} from "react-router-dom";
 
 export type PageProps = {
@@ -12,10 +14,7 @@ class App extends React.Component<PageProps> {
     render(): ReactElement {
         return (
             <Router>
-                <main>
-                    <Layout siteName={this.props.siteName}/>
-                </main>
-
+                <Layout siteName={this.props.siteName}/>
             </Router>
         );
     }
