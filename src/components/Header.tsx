@@ -6,7 +6,7 @@ class Header extends React.Component<PageProps> {
     render(): ReactElement {
         return (
             <div className="Header">
-                HEADER
+                {this.props.siteName}
             </div>
         );
     }

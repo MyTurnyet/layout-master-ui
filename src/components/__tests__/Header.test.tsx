@@ -1,11 +1,15 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import Header from "../Header";
+import {MemoryRouter} from "react-router-dom";
+import App from "../../App";
 
 describe(' Header ', () => {
     it('should have HEADER text', () => {
-        render(<Header siteName={"FOO"}/>);
-        const element = screen.getByText("HEADER");
+        render(<MemoryRouter>
+                <App siteName={"FOO!"}/>
+            </MemoryRouter>
+        );
+        const element = screen.getByText("FOO!");
         expect(element).toBeInTheDocument()
     });
 });
