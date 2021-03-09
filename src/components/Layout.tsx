@@ -6,19 +6,24 @@ import './Layout.scss'
 import "../index.scss"
 import HomePage from "../HomePage";
 import {Route} from "react-router-dom";
-import {faHome} from "@fortawesome/free-solid-svg-icons";
-
+import {library} from "@fortawesome/fontawesome-svg-core";
+import {fas} from '@fortawesome/free-solid-svg-icons'
 
 class Layout extends React.Component<PageProps> {
 
     navBarProps: NavBarProps = {
         buttons: [
             {
-                icon: faHome,
+                icon: "house-user",
                 path: "/",
                 label: "Home"
             },
         ]
+    }
+
+    constructor(props: PageProps) {
+        super(props);
+        library.add(fas)
     }
 
     render(): ReactElement {

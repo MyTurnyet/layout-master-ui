@@ -1,23 +1,33 @@
 import React, {Component, ReactElement} from "react";
 import {Link} from "react-router-dom";
-import {IconDefinition} from "@fortawesome/free-solid-svg-icons";
+import {IconLookup} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 import "./NavButton.scss";
+import {findIconDefinition} from "@fortawesome/fontawesome-svg-core";
 
-export type NavButtonProps ={
+export type NavButtonProps = {
     path: string;
-    icon: IconDefinition;
+    icon: string;
     label: string;
 }
 
 class NavButton extends Component<NavButtonProps> {
+
+    constructor(props: NavButtonProps) {
+        super(props);
+    }
+
     render(): ReactElement {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        const iconLookup: IconLookup = {prefix: "fas", iconName: this.props.icon};
+        const iconDefinition = findIconDefinition(iconLookup);
         return (
             < div className="NavButton">
                 <Link to={this.props.path}>
                     <div className="Icon">
-                        <FontAwesomeIcon icon={this.props.icon}/>
+                        <FontAwesomeIcon icon={iconDefinition}/>
                     </div>
                     <span className="Label">{this.props.label}</span>
                 </Link>
