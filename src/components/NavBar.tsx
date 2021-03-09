@@ -12,6 +12,7 @@ class NavBar extends Component<NavBarProps> {
             (buttonProp, index) =>
                 (<NavButton key={index}
                             {...buttonProp}
+                    isActive={true}
                 />)
         );
         return <div className="NavBar">
