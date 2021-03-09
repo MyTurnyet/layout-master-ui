@@ -10,6 +10,7 @@ import NavBar, {NavBarProps} from "./NavBar";
 
 import './Layout.scss'
 import "../pages/index.scss"
+import Dashboard from "../pages/admin/Dashboard";
 
 class Layout extends React.Component<PageProps> {
 
@@ -24,6 +25,11 @@ class Layout extends React.Component<PageProps> {
                 path: "/about",
                 label: "About",
                 icon: "info-circle"
+            },
+            {
+                path: "/admin/dashboard",
+                label: "Admin",
+                icon: "cogs"
             }
         ]
     }
@@ -41,6 +47,7 @@ class Layout extends React.Component<PageProps> {
                     <Switch>
                         <Route exact={true} path={'/'} component={HomePage}/>
                         <Route exact={true} path={'/about'} component={AboutPage}/>
+                        <Route exact={false} path={'/admin/dashboard'} component={Dashboard}/>
                     </Switch>
                 </div>
                 <NavBar {...this.navBarProps}/>
