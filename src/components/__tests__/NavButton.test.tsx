@@ -1,6 +1,6 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import NavButton, {NavButtonProps} from "../NavButton";
+import NavButton, {NavButtonProp} from "../NavButton";
 import {MemoryRouter} from "react-router-dom";
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {fas} from "@fortawesome/free-solid-svg-icons";
@@ -10,7 +10,7 @@ describe(' NavButton ', () => {
         library.add(fas);
     })
     it('should render label, icon and point to url ', () => {
-        const buttonProps: NavButtonProps = {
+        const buttonProps: NavButtonProp = {
             path: './foo',
             label: 'Testing',
             icon: 'home'

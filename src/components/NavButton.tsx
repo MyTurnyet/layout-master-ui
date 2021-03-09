@@ -10,13 +10,13 @@ export interface ActiveComponent {
     isActive: boolean;
 }
 
-export type NavButtonProps = {
+export type NavButtonProp = {
     path: string;
     icon: string;
     label: string;
 }
 
-class NavButton extends Component<NavButtonProps & ActiveComponent> {
+class NavButton extends Component<NavButtonProp & ActiveComponent> {
 
     render(): ReactElement {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment

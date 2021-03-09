@@ -27,7 +27,7 @@
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx .",
     "lint-fix": "eslint . --fix --ext .ts,.tsx,.js,.jsx ",
     "start": "react-scripts start",
-    "test": "react-scripts test"
+    "test": "react-scripts test --watch --colors"
   },
   "browserslist": {
     "production": [

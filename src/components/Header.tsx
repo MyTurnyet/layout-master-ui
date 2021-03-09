@@ -1,5 +1,5 @@
 import React, {ReactElement} from "react";
-import {PageProps} from "../App";
+import {PageProps} from "../pages/App";
 import './Header.scss'
 
 class Header extends React.Component<PageProps> {

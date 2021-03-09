@@ -9,7 +9,7 @@ describe(' NavBar ', () => {
     beforeAll(() => {
         library.add(fas);
     })
-    it('should find home button text ', () => {
+    it('should find one button in NavBar', () => {
         const buttonOne = {
             label: "home",
             path: "/",
@@ -25,5 +25,30 @@ describe(' NavBar ', () => {
             </MemoryRouter>);
         const element = screen.getByText('home');
         expect(element).toBeInTheDocument();
+    });
+
+    it('should find two buttons in NavBar', () => {
+        const buttonOne = {
+            label: "home",
+            path: "/",
+            icon: "home",
+        }
+        const buttonTwo = {
+            label: "about",
+            path: "/about",
+            icon: "home",
+        }
+
+        const navbarProps: NavBarProps = {
+            buttons: [buttonOne, buttonTwo],
+        }
+        render(
+            <MemoryRouter>
+                <NavBar {...navbarProps}/>
+            </MemoryRouter>);
+        const elements = screen.getAllByRole('link');
+        expect(elements).toHaveLength(2)
+        expect(screen.getByText("about")).toBeInTheDocument()
+        expect(screen.getByText("home")).toBeInTheDocument()
     });
 });

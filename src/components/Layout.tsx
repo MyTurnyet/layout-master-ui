@@ -1,13 +1,15 @@
 import React, {ReactElement} from "react";
-import {PageProps} from "../App";
-import NavBar, {NavBarProps} from "./NavBar";
-import Header from "./Header";
-import './Layout.scss'
-import "../index.scss"
-import HomePage from "../HomePage";
-import {Route} from "react-router-dom";
-import {library} from "@fortawesome/fontawesome-svg-core";
 import {fas} from '@fortawesome/free-solid-svg-icons'
+import {library} from "@fortawesome/fontawesome-svg-core";
+import {PageProps} from "../pages/App";
+import {Route, Switch} from "react-router-dom";
+import AboutPage from "../pages/AboutPage";
+import Header from "./Header";
+import HomePage from "../pages/HomePage";
+import NavBar, {NavBarProps} from "./NavBar";
+
+import './Layout.scss'
+import "../pages/index.scss"
 
 class Layout extends React.Component<PageProps> {
 
@@ -18,6 +20,11 @@ class Layout extends React.Component<PageProps> {
                 path: "/",
                 label: "Home"
             },
+            {
+                path: "/about",
+                label: "About",
+                icon: "info-circle"
+            }
         ]
     }
 
@@ -31,7 +38,10 @@ class Layout extends React.Component<PageProps> {
             <div className="Layout">
                 <Header siteName={this.props.siteName}/>
                 <div className={"Content"}>
-                    <Route path={'/'} component={HomePage}/>
+                    <Switch>
+                        <Route exact={true} path={'/'} component={HomePage}/>
+                        <Route exact={true} path={'/about'} component={AboutPage}/>
+                    </Switch>
                 </div>
                 <NavBar {...this.navBarProps}/>
             </div>
