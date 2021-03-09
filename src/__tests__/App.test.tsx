@@ -11,7 +11,7 @@ describe(' App ', () => {
             </MemoryRouter>
         );
         const siteNameElement = screen.getByText("foo!");
-        const navBarElement = screen.getByText("NAVBAR");
+        const navBarElement = screen.getByRole('link',{name: "Home"});
         expect(siteNameElement).toBeInTheDocument();
         expect(navBarElement).toBeInTheDocument();
     });

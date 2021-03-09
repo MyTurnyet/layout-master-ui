@@ -14,10 +14,6 @@ export type NavButtonProps = {
 
 class NavButton extends Component<NavButtonProps> {
 
-    constructor(props: NavButtonProps) {
-        super(props);
-    }
-
     render(): ReactElement {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
