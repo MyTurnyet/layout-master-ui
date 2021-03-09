@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
 import React, {ReactElement} from "react";
+import Layout from "./components/Layout";
 
-const App = (): ReactElement => (
-    <div className="App">
-        <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo"/>
-            <p>
-                Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-                className="App-link"
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Learn React
-            </a>
-        </header>
-    </div>
-);
+
+import {BrowserRouter as Router} from "react-router-dom";
+
+export type PageProps = {
+    siteName?: string
+}
+
+class App extends React.Component<PageProps> {
+    static defaultProps: PageProps = {siteName: "Layout Master"}
+
+    render(): ReactElement {
+        return (
+            <Router>
+                <Layout siteName={this.props.siteName}/>
+            </Router>
+        );
+    }
+}
 
 export default App;
