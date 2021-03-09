@@ -9,7 +9,7 @@ describe(' NavButton ', () => {
     beforeAll(() => {
         library.add(fas);
     })
-    it('should render label, icon and point to url ', () => {
+    it('should render not active label, icon and point to url ', () => {
         const buttonProps: NavButtonProp = {
             path: './foo',
             label: 'Testing',
@@ -17,10 +17,24 @@ describe(' NavButton ', () => {
         }
         render(
             <MemoryRouter>
-                <NavButton {...buttonProps}/>
+                <NavButton {...buttonProps} isActive={false}/>
             </MemoryRouter>);
         const link = screen.getByRole('link', {name: "Testing"});
-
+        expect(link).not.toHaveClass('active')
+        expect(link).toBeInTheDocument()
+    });
+    it('should render active label, icon and point to url ', () => {
+        const buttonProps: NavButtonProp = {
+            path: './foo',
+            label: 'Testing',
+            icon: 'home'
+        }
+        render(
+            <MemoryRouter>
+                <NavButton {...buttonProps} isActive={true}/>
+            </MemoryRouter>);
+        const link = screen.getByRole('link', {name: "Testing"});
+        expect(link).toHaveClass('active')
         expect(link).toBeInTheDocument()
     });
 });
