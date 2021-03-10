@@ -1,8 +1,7 @@
 import React, {FunctionComponent} from "react";
 
-export type AarDesignationProps = {
+export interface AarDesignationProps {
     initials:string;
-    description?:string;
 }
 
 const AarDesignation:FunctionComponent<AarDesignationProps>

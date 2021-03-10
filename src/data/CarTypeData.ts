@@ -1,6 +1,6 @@
 import {useAxios} from "use-axios-client";
-import {CarType} from "components/admin/CarTypesList";
 import {RequestState} from "use-axios-client/bin/useAxiosReducer";
+import {CarTypeProps} from "../components/cartypes/CarType";
 
 
 interface RequestFunctions {
@@ -14,8 +14,8 @@ export const GetAARDesignations = ():RequestState<string[]> & RequestFunctions =
     );
 }
 
-export const GetCarTypesList = ():RequestState<CarType[]> & RequestFunctions=>{
-    return useAxios<CarType[]>(
+export const GetCarTypesList = ():RequestState<CarTypeProps[]> & RequestFunctions=>{
+    return useAxios<CarTypeProps[]>(
         "https://layout-master-api.herokuapp.com/models/types"
     );
 }
