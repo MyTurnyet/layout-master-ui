@@ -1,10 +1,26 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
 import Dashboard from "../Dashboard";
+import {GetAARDesignations} from "../data/CarTypeData";
+import {mocked} from "ts-jest/utils";
+
+jest.mock(`../../data/AARDesignationData`);
+
+const aarDatafunction = mocked(GetAARDesignations, true);
 
 describe(' Dashboard ', () => {
-    it('should have DASHBOARD! as text ', () => {
+    it('should have stuff as text ', () => {
+        aarDatafunction.mockImplementation(() => {
+            return {
+                data: ["XM", "GS"],
+                error: undefined,
+                loading: false,
+                cancel: jest.fn(),
+                refetch: jest.fn()
+            };
+        })
         render(<Dashboard/>);
-        expect(screen.getByText("DASHBOARD!")).toBeInTheDocument();
+        expect(screen.getByText("XM")).toBeInTheDocument()
+        expect(screen.getByText("GS")).toBeInTheDocument()
     });
 });

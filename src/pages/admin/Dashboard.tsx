@@ -1,10 +1,9 @@
 import React, {FunctionComponent} from "react";
-import {useAxios} from "use-axios-client";
+import AarDesignation from "./components/AarDesignation";
+import {GetAARDesignations} from "./data/CarTypeData";
 
 const Dashboard: FunctionComponent = () => {
-    const {data, error, loading} = useAxios<string[]>(
-        "https://layout-master-api.herokuapp.com/models/aar"
-    )
+    const {data, error, loading} = GetAARDesignations();
     return (
         <div className={"Dashboard"}>
             {loading && <div>Loading!!</div>}
@@ -14,7 +13,7 @@ const Dashboard: FunctionComponent = () => {
             <ul>
                 {data && data.map((designation: string, index: number) => {
                         return (<li key={index}>
-                            {designation}
+                            <AarDesignation initials={designation}/>
                         </li>);
                     }
                 )}
