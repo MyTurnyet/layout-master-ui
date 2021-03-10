@@ -1,35 +1,37 @@
-import React, {Component, ReactElement} from "react";
+import React, {FunctionComponent} from "react";
 import {Link} from "react-router-dom";
 import {IconLookup} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-import "./NavButton.scss";
+import "components/NavButton.scss";
 import {findIconDefinition} from "@fortawesome/fontawesome-svg-core";
 
-export type NavButtonProps = {
+export interface ActiveComponent {
+    isActive: boolean;
+}
+
+export type NavButtonProp = {
     path: string;
     icon: string;
     label: string;
 }
 
-class NavButton extends Component<NavButtonProps> {
-
-    render(): ReactElement {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        const iconLookup: IconLookup = {prefix: "fas", iconName: this.props.icon};
-        const iconDefinition = findIconDefinition(iconLookup);
-        return (
-            < div className="NavButton">
-                <Link to={this.props.path}>
-                    <div className="Icon">
-                        <FontAwesomeIcon icon={iconDefinition}/>
-                    </div>
-                    <span className="Label">{this.props.label}</span>
-                </Link>
-            </div>
-        );
-    }
+const NavButton: FunctionComponent<NavButtonProp & ActiveComponent>
+    = (props) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const iconLookup: IconLookup = {prefix: "fas", iconName: props.icon};
+    const iconDefinition = findIconDefinition(iconLookup);
+    return (
+        < div className={`NavButton ${props.isActive ? 'active' : ''}`}>
+            <Link to={props.path}>
+                <div className={`Icon ${props.isActive ? 'active' : ''}`}>
+                    <FontAwesomeIcon icon={iconDefinition}/>
+                </div>
+                <span className="Label">{props.label}</span>
+            </Link>
+        </div>
+    );
 }
 
 export default NavButton;

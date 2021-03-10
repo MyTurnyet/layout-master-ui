@@ -1,26 +1,28 @@
-import React, {Component, ReactElement} from "react";
+import React, {FunctionComponent} from "react";
+import {useLocation} from "react-router-dom";
 import './NavBar.scss'
-import NavButton, {NavButtonProps} from "./NavButton";
+import NavButton, {NavButtonProp} from "components/NavButton";
 
 export type NavBarProps = {
-    buttons: NavButtonProps[]
+    buttons: NavButtonProp[]
 }
 
-class NavBar extends Component<NavBarProps> {
-    render(): ReactElement {
-        const navButtonsArray = this.props.buttons.map(
-            (buttonProp, index) =>
-                (<NavButton key={index}
-                            {...buttonProp}
-                />)
-        );
-        return <div className="NavBar">
-            {navButtonsArray}
-        </div>;
+const NavBar: FunctionComponent<NavBarProps> = (props) => {
+    const currentLocation = useLocation().pathname;
 
-    }
+    return (<div className="NavBar">
+            {props.buttons.map(
+                (buttonProp: NavButtonProp, index: number) => {
+                    return (<NavButton key={index}
+                                       {...buttonProp}
+                                       isActive={buttonProp.path == currentLocation}
+                    />)
+                })
+            }
+        </div>
+    )
 
-}
+};
 
 
 export default NavBar;
