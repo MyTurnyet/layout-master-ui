@@ -1,16 +1,16 @@
 import React, {ReactElement} from "react";
 import {fas} from '@fortawesome/free-solid-svg-icons'
 import {library} from "@fortawesome/fontawesome-svg-core";
-import {PageProps} from "../pages/App";
+import {PageProps} from "pages/App";
 import {Route, Switch} from "react-router-dom";
-import AboutPage from "../pages/AboutPage";
-import Header from "./Header";
-import HomePage from "../pages/HomePage";
-import NavBar, {NavBarProps} from "./NavBar";
+import AboutPage from "pages/AboutPage";
+import Header from "components/Header";
+import HomePage from "pages/HomePage";
+import NavBar, {NavBarProps} from "components/NavBar";
 
-import './Layout.scss'
-import "../pages/index.scss"
-import Dashboard from "../pages/admin/Dashboard";
+import 'components/Layout.scss'
+import "pages/index.scss"
+import Dashboard from "pages/admin/Dashboard";
 
 class Layout extends React.Component<PageProps> {
 

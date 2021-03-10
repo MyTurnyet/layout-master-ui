@@ -1,7 +1,7 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
 import {MemoryRouter} from "react-router-dom";
-import NavBar, {NavBarProps} from "../NavBar";
+import NavBar, {NavBarProps} from "components/NavBar";
 import {fas} from "@fortawesome/free-solid-svg-icons";
 import {library} from "@fortawesome/fontawesome-svg-core";
 

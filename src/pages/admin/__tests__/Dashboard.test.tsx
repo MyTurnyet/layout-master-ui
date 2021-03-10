@@ -1,10 +1,10 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import Dashboard from "../Dashboard";
-import {GetAARDesignations} from "../data/CarTypeData";
+import Dashboard from "pages/admin/Dashboard";
+import {GetAARDesignations} from "data/CarTypeData";
 import {mocked} from "ts-jest/utils";
 
-jest.mock(`../../data/AARDesignationData`);
+jest.mock(`data/CarTypeData`);
 
 const aarDatafunction = mocked(GetAARDesignations, true);
 

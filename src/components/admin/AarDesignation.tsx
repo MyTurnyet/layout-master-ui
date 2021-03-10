@@ -12,3 +12,5 @@ const AarDesignation:FunctionComponent<AarDesignationProps>
         <div className={`AarDesignation`}>{props.initials}</div>
     )
 }
+
+export default AarDesignation;

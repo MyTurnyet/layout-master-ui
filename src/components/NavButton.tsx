@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import {IconLookup} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-import "./NavButton.scss";
+import "components/NavButton.scss";
 import {findIconDefinition} from "@fortawesome/fontawesome-svg-core";
 
 export interface ActiveComponent {

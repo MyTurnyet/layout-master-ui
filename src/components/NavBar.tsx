@@ -1,7 +1,7 @@
 import React, {FunctionComponent} from "react";
 import {useLocation} from "react-router-dom";
 import './NavBar.scss'
-import NavButton, {NavButtonProp} from "./NavButton";
+import NavButton, {NavButtonProp} from "components/NavButton";
 
 export type NavBarProps = {
     buttons: NavButtonProp[]

@@ -1,10 +1,10 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import CarTypesList, {CarType} from "../CarTypesList";
+import CarTypesList, {CarType} from "components/admin/CarTypesList";
 import {mocked} from "ts-jest/utils";
-import {GetCarTypesList} from "../../data/CarTypeData";
+import {GetCarTypesList} from "data/CarTypeData";
 
-jest.mock(`../../data/AARDesignationData`);
+jest.mock(`data/CarTypeData`);
 
 const aarDatafunction = mocked(GetCarTypesList, true);
 describe(' CarTypesList ', () => {

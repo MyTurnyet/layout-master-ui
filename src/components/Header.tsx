@@ -1,7 +1,7 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import React, {ReactElement} from "react";
 import {Link} from "react-router-dom";
-import {PageProps} from "../pages/App";
+import {PageProps} from "pages/App";
 import './Header.scss'
 import {IconLookup} from "@fortawesome/free-solid-svg-icons";
 import {findIconDefinition} from "@fortawesome/fontawesome-svg-core";

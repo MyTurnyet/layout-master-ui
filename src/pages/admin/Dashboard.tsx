@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from "react";
-import AarDesignation from "./components/AarDesignation";
-import {GetAARDesignations} from "./data/CarTypeData";
+import AarDesignation from "components/admin/AarDesignation";
+import {GetAARDesignations} from "../../data/CarTypeData";
 
 const Dashboard: FunctionComponent = () => {
     const {data, error, loading} = GetAARDesignations();

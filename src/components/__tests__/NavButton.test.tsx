@@ -1,6 +1,6 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import NavButton, {NavButtonProp} from "../NavButton";
+import NavButton, {NavButtonProp} from "components/NavButton";
 import {MemoryRouter} from "react-router-dom";
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {fas} from "@fortawesome/free-solid-svg-icons";
@@ -33,8 +33,9 @@ describe(' NavButton ', () => {
             <MemoryRouter>
                 <NavButton {...buttonProps} isActive={true}/>
             </MemoryRouter>);
+        screen.debug()
         const link = screen.getByRole('link', {name: "Testing"});
-        expect(link).toHaveClass('active')
+        expect(link.parentElement).toHaveClass('active')
         expect(link).toBeInTheDocument()
     });
 });
