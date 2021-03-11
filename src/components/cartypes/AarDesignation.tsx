@@ -1,5 +1,7 @@
 import React, {FunctionComponent} from "react";
 
+import "./AarDesignation.scss";
+
 export interface AarDesignationProps {
     initials:string;
 }
