@@ -2,6 +2,8 @@ import React, {FunctionComponent} from "react";
 import AarDesignation from "./AarDesignation";
 import CarriedGoodsList from "./CarriedGoodsList";
 
+import "./CarType.scss";
+
 export type CarTypeProps = {
     aarDesignation: string;
     carriedGoodsList: string[];

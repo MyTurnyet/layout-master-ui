@@ -1,4 +1,5 @@
 import React, {FunctionComponent} from "react";
+import "./CarriedGoodsList.scss";
 
 interface CarriedGoodsList {
     goods: string[]
