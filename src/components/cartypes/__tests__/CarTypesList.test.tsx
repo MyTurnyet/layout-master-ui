@@ -3,25 +3,25 @@ import {render, screen} from '@testing-library/react';
 import CarTypesList from "components/cartypes/CarTypesList";
 import {mocked} from "ts-jest/utils";
 import {GetCarTypesList} from "data/CarTypeData";
-import {CarTypeProps} from "../CarTypeComponent";
+import {CarType} from "../CarTypeComponent";
 
 jest.mock(`data/CarTypeData`);
 
 const carTypesDatafunction = mocked(GetCarTypesList, true);
 describe(' CarTypesList ', () => {
     it('should have one CarType ', () => {
-        const boxcarType1: CarTypeProps = {
+        const boxcarType1: CarType = {
             aarDesignation: "XM",
             carriedGoodsList: ["Ingredients", "Logs", "Parts"],
             id: "8c4c14c7-83a7-4e9d-a29d-35f5297f52c0"
         }
-        const boxcarType2: CarTypeProps = {
+        const boxcarType2: CarType = {
             aarDesignation: "GS",
             carriedGoodsList: ["ScrapMetal", "MetalScraps", "Logs", "Aggregates"],
             id: "8f007515-e1d7-42a1-b25e-0e849b64b8a0"
         }
 
-        const carTypeData: CarTypeProps[] = [boxcarType1, boxcarType2];
+        const carTypeData: CarType[] = [boxcarType1, boxcarType2];
         carTypesDatafunction.mockImplementation(() => {
             return {
                 refetch: jest.fn(),

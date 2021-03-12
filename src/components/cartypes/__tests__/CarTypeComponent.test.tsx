@@ -1,10 +1,10 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import CarTypeComponent, {CarTypeProps} from "../CarTypeComponent";
+import CarTypeComponent, {CarType} from "../CarTypeComponent";
 
 describe('CarTypeComponent ', () => {
     it('should render with AarType ', () => {
-        const carType: CarTypeProps = {
+        const carType: CarType = {
             aarDesignation: "GS",
             carriedGoodsList: ["Logs", "Parts"],
             id: "12345"

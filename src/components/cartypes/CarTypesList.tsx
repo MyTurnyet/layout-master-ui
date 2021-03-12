@@ -1,12 +1,12 @@
 import React, {FunctionComponent} from "react";
 import {GetCarTypesList} from "data/CarTypeData";
-import CarTypeComponent, {CarTypeProps} from "./CarTypeComponent";
+import CarTypeComponent, {CarType} from "./CarTypeComponent";
 
 
 const CarTypesList: FunctionComponent =
     () => {
         const carTypesListData = GetCarTypesList();
-        const carTypeData: CarTypeProps[] | undefined = carTypesListData.data;
+        const carTypeData: CarType[] | undefined = carTypesListData.data;
 
         const loading = carTypesListData.loading;
         const error = carTypesListData.error;

@@ -3,28 +3,28 @@ import {render, screen} from '@testing-library/react';
 import Dashboard from "pages/admin/Dashboard";
 import {GetAARDesignations, GetCarTypesList} from "data/CarTypeData";
 import {mocked} from "ts-jest/utils";
-import {CarTypeProps} from "components/cartypes/CarTypeComponent";
+import {CarType} from "components/cartypes/CarTypeComponent";
 
 jest.mock(`data/CarTypeData`);
 
-const aarDatafunction = mocked(GetAARDesignations, true);
-const carTypesDatafunction = mocked(GetCarTypesList, true);
-const boxcarType1: CarTypeProps = {
-    aardesignation: "XM",
+const aarDataFunction = mocked(GetAARDesignations, true);
+const carTypesDataFunction = mocked(GetCarTypesList, true);
+const boxcarType1: CarType = {
+    aarDesignation: "XM",
     carriedGoodsList: ["Ingredients", "Logs", "Parts"],
     id: "8c4c14c7-83a7-4e9d-a29d-35f5297f52c0"
 }
-const boxcarType2: CarTypeProps = {
-    aardesignation: "GS",
+const boxcarType2: CarType = {
+    aarDesignation: "GS",
     carriedGoodsList: ["ScrapMetal", "MetalScraps", "Logs", "Aggregates"],
     id: "8f007515-e1d7-42a1-b25e-0e849b64b8a0"
 }
 
-const carTypeData: CarTypeProps[] = [boxcarType1, boxcarType2];
+const carTypeData: CarType[] = [boxcarType1, boxcarType2];
 
 describe(' Dashboard ', () => {
     it('should have stuff as text ', () => {
-        carTypesDatafunction.mockImplementation(() => {
+        carTypesDataFunction.mockImplementation(() => {
             return {
                 refetch: jest.fn(),
                 cancel: jest.fn(),
@@ -33,7 +33,7 @@ describe(' Dashboard ', () => {
                 data: carTypeData
             };
         });
-            aarDatafunction.mockImplementation(() => {
+            aarDataFunction.mockImplementation(() => {
             return {
                 data: ["XM", "GS"],
                 error: undefined,
