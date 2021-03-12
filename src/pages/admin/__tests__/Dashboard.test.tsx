@@ -3,7 +3,7 @@ import {render, screen} from '@testing-library/react';
 import Dashboard from "pages/admin/Dashboard";
 import {GetAARDesignations, GetCarTypesList} from "data/CarTypeData";
 import {mocked} from "ts-jest/utils";
-import {CarTypeProps} from "components/cartypes/CarType";
+import {CarTypeProps} from "components/cartypes/CarTypeComponent";
 
 jest.mock(`data/CarTypeData`);
 

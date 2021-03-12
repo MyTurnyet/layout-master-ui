@@ -1,15 +1,15 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import CarType, {CarTypeProps} from "../CarType";
+import CarTypeComponent, {CarTypeProps} from "../CarTypeComponent";
 
-describe(' CarType ', () => {
+describe('CarTypeComponent ', () => {
     it('should render with AarType ', () => {
         const carType: CarTypeProps = {
             aarDesignation: "GS",
             carriedGoodsList: ["Logs", "Parts"],
             id: "12345"
         }
-        render(<CarType {...carType} />);
+        render(<CarTypeComponent {...carType} />);
         const aarElement = screen.getByText("GS");
         expect(aarElement).toBeInTheDocument()
         expect(aarElement).toHaveClass("AarDesignation")

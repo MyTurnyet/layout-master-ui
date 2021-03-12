@@ -1,6 +1,6 @@
 import {useAxios} from "use-axios-client";
 import {RequestState} from "use-axios-client/bin/useAxiosReducer";
-import {CarTypeProps} from "../components/cartypes/CarType";
+import {CarTypeProps} from "../components/cartypes/CarTypeComponent";
 
 
 interface RequestFunctions {

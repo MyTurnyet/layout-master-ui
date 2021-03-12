@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from "react";
 import {GetCarTypesList} from "data/CarTypeData";
-import CarType, {CarTypeProps} from "./CarType";
+import CarTypeComponent, {CarTypeProps} from "./CarTypeComponent";
 
 
 const CarTypesList: FunctionComponent =
@@ -16,7 +16,7 @@ const CarTypesList: FunctionComponent =
 
             {carTypeData && carTypeData.map((carType) =>
                 (
-                    <CarType key={carType.id} {...carType}/>
+                    <CarTypeComponent key={carType.id} {...carType}/>
                 )
             )}
         </div>);
