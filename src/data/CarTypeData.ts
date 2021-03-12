@@ -1,6 +1,7 @@
 import {useAxios} from "use-axios-client";
 import {RequestState} from "use-axios-client/bin/useAxiosReducer";
 import {CarType} from "../components/cartypes/CarTypeComponent";
+import {FreightCar} from "../components/freightcars/FreightCarComponent";
 
 
 interface RequestFunctions {
@@ -17,5 +18,11 @@ export const GetAARDesignations = ():RequestState<string[]> & RequestFunctions =
 export const GetCarTypesList = ():RequestState<CarType[]> & RequestFunctions=>{
     return useAxios<CarType[]>(
         "https://layout-master-api.herokuapp.com/models/types"
+    );
+}
+
+export const GetAllFreightCars=():RequestState<FreightCar[]> & RequestFunctions=> {
+    return useAxios<FreightCar[]>(
+        "https://layout-master-api.herokuapp.com/inventory/freightcars"
     );
 }
