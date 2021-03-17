@@ -1,17 +1,24 @@
 import React, {FunctionComponent} from "react";
-
-import "./AarDesignation.scss";
+import styled from "styled-components";
 
 export interface AarDesignationProps {
-    initials:string;
+    initials: string;
 }
 
-const AarDesignation:FunctionComponent<AarDesignationProps>
-    = (props)=>
-{
+const StyledAarDesignation = styled.div(props => `
+  text-align: center;
+  padding: 5px;
+  font-size: 1.2em;
+  width: 2.4em;
+  color: ${props.theme.colors.tertiary.color};
+  background-color: ${props.theme.colors.secondary.light};
+`);
+
+const AarDesignationComponent: FunctionComponent<AarDesignationProps>
+    = (props) => {
     return (
-        <div className={`AarDesignation`}>{props.initials}</div>
+        <StyledAarDesignation>{props.initials}</StyledAarDesignation>
     )
 }
 
-export default AarDesignation;
+export default AarDesignationComponent;

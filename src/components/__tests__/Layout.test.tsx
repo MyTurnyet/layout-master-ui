@@ -12,6 +12,5 @@ describe(' layout ', () => {
         );
         const headerElement = screen.getByText(siteName);
         expect(headerElement).toBeInTheDocument();
-
     });
 });

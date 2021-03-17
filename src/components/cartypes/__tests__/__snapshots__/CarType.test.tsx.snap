@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` CarType  should render with AarType  1`] = `
+<div
+  class="sc-dlfnbm iWniRb"
+  id="12345"
+>
+  <div
+    class="sc-bdfBwQ bBNLzT"
+  >
+    GS
+  </div>
+  <div
+    class="sc-gsTCUz wJjXs"
+  >
+    Logs, Parts
+  </div>
+</div>
+`;
