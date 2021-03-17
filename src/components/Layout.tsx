@@ -8,7 +8,6 @@ import Header from "components/Header";
 import HomePage from "pages/HomePage";
 import NavBar, {NavBarProps} from "components/NavBar";
 
-// import 'components/Layout.scss'
 import "pages/index.scss"
 import Dashboard from "pages/admin/Dashboard";
 import styled, {ThemeProvider} from "styled-components";

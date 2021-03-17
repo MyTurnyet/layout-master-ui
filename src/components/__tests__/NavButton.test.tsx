@@ -6,6 +6,7 @@ import {library} from "@fortawesome/fontawesome-svg-core";
 import {fas} from "@fortawesome/free-solid-svg-icons";
 import {ThemeProvider} from "styled-components";
 import defaultTheme from "../../theme/theme";
+import "jest-styled-components";
 
 describe(' NavButton ', () => {
     beforeAll(() => {
@@ -24,8 +25,8 @@ describe(' NavButton ', () => {
                 </ThemeProvider>
             </MemoryRouter>);
         const link = screen.getByRole('link', {name: "Testing"});
-        expect(link).not.toHaveClass('active')
         expect(link).toBeInTheDocument()
+        expect(link.parentElement).toMatchSnapshot();
     });
     it('should render active label, icon and point to url ', () => {
         const buttonProps: NavButtonProp = {
@@ -41,7 +42,7 @@ describe(' NavButton ', () => {
             </MemoryRouter>);
         screen.debug()
         const link = screen.getByRole('link', {name: "Testing"});
-        // expect(link.parentElement).toHaveClass('active')
         expect(link).toBeInTheDocument()
+        expect(link.parentElement).toMatchSnapshot();
     });
 });

@@ -1,14 +1,19 @@
 import React, {FunctionComponent} from "react";
-import "./CarriedGoodsList.scss";
+import styled from "styled-components";
 
 interface CarriedGoodsList {
     goods: string[]
 }
 
+const StyledCarriedGoodsList = styled.div`
+  color: ${(props) => props.theme.colors.tertiary.light};
+  padding: 5px 10px;
+  font-size: 1em;`;
+
 const CarriedGoodsList: FunctionComponent<CarriedGoodsList> = (props) => {
-    return (<div className={`CarriedGoodsList`}>
+    return (<StyledCarriedGoodsList className={`CarriedGoodsList`}>
         {props.goods.join(", ")}
-    </div>);
+    </StyledCarriedGoodsList>);
 }
 
 export default CarriedGoodsList;
