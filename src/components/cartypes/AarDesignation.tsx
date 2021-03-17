@@ -5,19 +5,19 @@ export interface AarDesignationProps {
     initials: string;
 }
 
-const StyledAarDesignation = styled.div`
+const StyledAarDesignation = styled.div(props => `
   text-align: center;
   padding: 5px;
   font-size: 1.2em;
   width: 2.4em;
-  color: ${(props => props.theme.colors.tertiary.color)};
-  background-color: ${(props => props.theme.colors.secondary.light)};
-`;
+  color: ${props.theme.colors.tertiary.color};
+  background-color: ${props.theme.colors.secondary.light};
+`);
 
 const AarDesignationComponent: FunctionComponent<AarDesignationProps>
     = (props) => {
     return (
-        <StyledAarDesignation >{props.initials}</StyledAarDesignation>
+        <StyledAarDesignation>{props.initials}</StyledAarDesignation>
     )
 }
 

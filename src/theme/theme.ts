@@ -19,7 +19,7 @@ export type SiteTheme = {
         logo: string,
     },
 }
-const lightTheme: SiteTheme = {
+const redRailroad: SiteTheme = {
         colors: {
             primary: {
                 color: "#FFFFFF",
@@ -50,6 +50,6 @@ const lightTheme: SiteTheme = {
     }
 ;
 
-const defaultTheme = lightTheme;
+const defaultTheme = redRailroad;
 export default defaultTheme;
 
