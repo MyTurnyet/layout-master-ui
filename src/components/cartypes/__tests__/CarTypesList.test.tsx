@@ -4,6 +4,8 @@ import CarTypesList from "components/cartypes/CarTypesList";
 import {mocked} from "ts-jest/utils";
 import {GetCarTypesList} from "data/CarTypeData";
 import {CarType} from "../CarTypeComponent";
+import {ThemeProvider} from "styled-components";
+import defaultTheme from "../../../theme/theme";
 
 jest.mock(`data/CarTypeData`);
 
@@ -33,7 +35,11 @@ describe(' CarTypesList ', () => {
             }
         })
 
-        render(<CarTypesList/>);
+        render(
+            <ThemeProvider theme={defaultTheme}>
+                <CarTypesList/>
+            </ThemeProvider>
+        );
         expect(screen.getByText("XM")).toBeInTheDocument()
         expect(screen.getByText(boxcarType.carriedGoodsList.join(", "))).toBeInTheDocument()
         expect(screen.getByText("GS")).toBeInTheDocument()

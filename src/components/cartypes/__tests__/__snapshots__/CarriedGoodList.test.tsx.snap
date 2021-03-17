@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` CarriedGoodList  should  1`] = `
+<div
+  class="sc-bdfBwQ fAJcNs"
+>
+  Food, Logs, Parts
+</div>
+`;

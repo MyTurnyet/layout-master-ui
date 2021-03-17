@@ -1,6 +1,6 @@
 import {useAxios} from "use-axios-client";
 import {RequestState} from "use-axios-client/bin/useAxiosReducer";
-import {CarType} from "../components/cartypes/CarTypeComponent";
+import {CarTypeComponent} from "../components/cartypes/CarTypeComponent";
 import {FreightCar} from "../components/freightcars/FreightCarComponent";
 
 

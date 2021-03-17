@@ -2,7 +2,7 @@ import React, {FunctionComponent} from "react";
 import AarDesignation from "./AarDesignation";
 import CarriedGoodsList from "./CarriedGoodsList";
 
-import "./CarTypeComponent.scss";
+import styled from "styled-components";
 
 export type CarType = {
     aarDesignation: string;
@@ -10,10 +10,19 @@ export type CarType = {
     id: string;
 }
 
+const StyledCarType = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 5px;
+  height: 100%;
+  width: auto;
+`;
+
 const CarTypeComponent: FunctionComponent<CarType> = (props: CarType & { children?: React.ReactNode })=>{
-    return (<div className={`CarType`} id={props.id}>
+    return (<StyledCarType id={props.id}>
         <AarDesignation initials={props.aarDesignation}/>
         <CarriedGoodsList goods={props.carriedGoodsList}/>
-    </div>);
+    </StyledCarType>);
 }
 export default CarTypeComponent;

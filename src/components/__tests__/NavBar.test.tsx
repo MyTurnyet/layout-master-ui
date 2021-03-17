@@ -4,6 +4,8 @@ import {MemoryRouter} from "react-router-dom";
 import NavBar, {NavBarProps} from "components/NavBar";
 import {fas} from "@fortawesome/free-solid-svg-icons";
 import {library} from "@fortawesome/fontawesome-svg-core";
+import {ThemeProvider} from "styled-components";
+import defaultTheme from "../../theme/theme";
 
 describe(' NavBar ', () => {
     beforeAll(() => {
@@ -21,7 +23,9 @@ describe(' NavBar ', () => {
         }
         render(
             <MemoryRouter>
-                <NavBar {...navbarProps}/>
+                <ThemeProvider theme={defaultTheme}>
+                    <NavBar {...navbarProps}/>
+                </ThemeProvider>
             </MemoryRouter>);
         const element = screen.getByText('home');
         expect(element).toBeInTheDocument();
@@ -44,7 +48,9 @@ describe(' NavBar ', () => {
         }
         render(
             <MemoryRouter>
-                <NavBar {...navbarProps}/>
+                <ThemeProvider theme={defaultTheme}>
+                    <NavBar {...navbarProps}/>
+                </ThemeProvider>
             </MemoryRouter>);
         const elements = screen.getAllByRole('link');
         expect(elements).toHaveLength(2)

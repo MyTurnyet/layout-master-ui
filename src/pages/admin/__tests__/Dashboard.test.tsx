@@ -3,6 +3,8 @@ import {render, screen} from '@testing-library/react';
 import Dashboard from "pages/admin/Dashboard";
 import {GetAARDesignations, GetCarTypesList} from "data/CarTypeData";
 import {mocked} from "ts-jest/utils";
+import {ThemeProvider} from "styled-components";
+import defaultTheme from "../../../theme/theme";
 import {CarType} from "components/cartypes/CarTypeComponent";
 
 jest.mock(`data/CarTypeData`);
@@ -42,7 +44,11 @@ describe(' Dashboard ', () => {
                 refetch: jest.fn()
             };
         });
-        render(<Dashboard/>);
+        render(
+            <ThemeProvider theme={defaultTheme}>
+                <Dashboard/>
+            </ThemeProvider>
+        );
         expect(screen.getByText("XM")).toBeInTheDocument()
         expect(screen.getByText("GS")).toBeInTheDocument()
     });

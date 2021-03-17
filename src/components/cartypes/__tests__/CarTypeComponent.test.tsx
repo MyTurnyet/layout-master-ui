@@ -1,23 +1,29 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import CarTypeComponent, {CarType} from "../CarTypeComponent";
+import CarType, {CarTypeProps} from "../CarType";
+import {ThemeProvider} from "styled-components";
+import defaultTheme from "../../../theme/theme";
 
-describe('CarTypeComponent ', () => {
+describe(' CarType ', () => {
     it('should render with AarType ', () => {
-        const carType: CarType = {
+        const carType: CarTypeProps = {
             aarDesignation: "GS",
             carriedGoodsList: ["Logs", "Parts"],
             id: "12345"
         }
-        render(<CarTypeComponent {...carType} />);
+
+        render(
+            <ThemeProvider theme={defaultTheme}>
+                <CarType {...carType} />
+            </ThemeProvider>
+        );
+
         const aarElement = screen.getByText("GS");
         expect(aarElement).toBeInTheDocument()
-        expect(aarElement).toHaveClass("AarDesignation")
-        expect(aarElement.parentElement).toHaveClass("CarType")
 
         const goodsElement = screen.getByText("Logs, Parts");
         expect(goodsElement).toBeInTheDocument()
-         expect(goodsElement).toHaveClass("CarriedGoodsList")
-         expect(goodsElement.parentElement).toHaveClass("CarType")
+
+        expect(aarElement.parentElement).toMatchSnapshot()
     })
 });
