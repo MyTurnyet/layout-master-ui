@@ -4,18 +4,20 @@ import Dashboard from "pages/admin/Dashboard";
 import {GetAARDesignations, GetCarTypesList} from "data/CarTypeData";
 import {mocked} from "ts-jest/utils";
 import {CarTypeProps} from "components/cartypes/CarType";
+import {ThemeProvider} from "styled-components";
+import defaultTheme from "../../../theme/theme";
 
 jest.mock(`data/CarTypeData`);
 
 const aarDatafunction = mocked(GetAARDesignations, true);
 const carTypesDatafunction = mocked(GetCarTypesList, true);
 const boxcarType1: CarTypeProps = {
-    aardesignation: "XM",
+    aarDesignation: "XM",
     carriedGoodsList: ["Ingredients", "Logs", "Parts"],
     id: "8c4c14c7-83a7-4e9d-a29d-35f5297f52c0"
 }
 const boxcarType2: CarTypeProps = {
-    aardesignation: "GS",
+    aarDesignation: "GS",
     carriedGoodsList: ["ScrapMetal", "MetalScraps", "Logs", "Aggregates"],
     id: "8f007515-e1d7-42a1-b25e-0e849b64b8a0"
 }
@@ -33,7 +35,7 @@ describe(' Dashboard ', () => {
                 data: carTypeData
             };
         });
-            aarDatafunction.mockImplementation(() => {
+        aarDatafunction.mockImplementation(() => {
             return {
                 data: ["XM", "GS"],
                 error: undefined,
@@ -42,7 +44,11 @@ describe(' Dashboard ', () => {
                 refetch: jest.fn()
             };
         });
-        render(<Dashboard/>);
+        render(
+            <ThemeProvider theme={defaultTheme}>
+                <Dashboard/>
+            </ThemeProvider>
+        );
         expect(screen.getByText("XM")).toBeInTheDocument()
         expect(screen.getByText("GS")).toBeInTheDocument()
     });
